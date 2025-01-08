@@ -1,0 +1,422 @@
+<html>
+<head>
+    <base href=".">
+    <title>Llama Clicker</title>
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            user-select: none;
+            padding-top: 20px;
+        }
+
+        #llama {
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+            transition: transform 0.1s;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url('/lamawithtophat.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #llama:active {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .score-container {
+            font-size: 24px;
+            margin: 20px;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .floating-number {
+            position: absolute;
+            animation: float-up 1s ease-out;
+            color: #4CAF50;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        @keyframes float-up {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .falling-llama {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('/lamawithtophat.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
+            animation: fall-down 1s ease-out;
+        }
+
+        @keyframes fall-down {
+            0% {
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(150vh);
+                opacity: 0;
+            }
+        }
+
+        .upgrades {
+            position: static;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .click-upgrades {
+            position: static;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .upgrade-btn, .click-upgrade-btn {
+            width: 100%;
+        }
+
+        .upgrade-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .click-upgrade-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .upgrade-btn:hover, .click-upgrade-btn:hover {
+            background: #45a049;
+        }
+
+        .upgrade-btn:disabled, .click-upgrade-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .auto-count, .click-power {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+
+        .shop-container {
+            position: fixed;
+            z-index: 1;
+        }
+
+        .shop-header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shop-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .shop-content.open {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .corner-logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .corner-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .corner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="score-container">
+        Llamas: <span id="score">0</span><br>
+        Per Second: <span id="perSecond">0</span><br>
+        Per Click: <span id="perClick">1</span>
+    </div>
+    <div id="warning-message" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+     background: rgba(255,0,0,0.9); color: white; padding: 20px; border-radius: 10px; 
+     display: none; z-index: 1000;">
+  Auto clicker detected! Please play fairly.
+</div>
+
+    <div id="llama"></div>
+
+    <div class="shop-container" style="right: 20px; top: 20px;">
+        <div class="shop-header">
+            <span>Auto Llama Shop</span>
+            <span>&#x25bc;</span>
+        </div>
+        <div class="shop-content">
+            <div class="upgrades">
+                <button id="autoUpgrade1" class="upgrade-btn">Auto Llama 1/s (100 llamas)<span class="auto-count" id="autoCount1">0</span></button>
+                <button id="autoUpgrade2" class="upgrade-btn">Auto Llama 2/s (250 llamas)<span class="auto-count" id="autoCount2">0</span></button>
+                <button id="autoUpgrade3" class="upgrade-btn">Auto Llama 5/s (500 llamas)<span class="auto-count" id="autoCount3">0</span></button>
+                <button id="autoUpgrade4" class="upgrade-btn">Auto Llama 10/s (1000 llamas)<span class="auto-count" id="autoCount4">0</span></button>
+                <button id="autoUpgrade5" class="upgrade-btn">Auto Llama 20/s (2500 llamas)<span class="auto-count" id="autoCount5">0</span></button>
+                <button id="autoUpgrade6" class="upgrade-btn">Auto Llama 50/s (5000 llamas)<span class="auto-count" id="autoCount6">0</span></button>
+                <button id="autoUpgrade7" class="upgrade-btn">Auto Llama 100/s (10000 llamas)<span class="auto-count" id="autoCount7">0</span></button>
+                <button id="autoUpgrade8" class="upgrade-btn">Auto Llama 200/s (25000 llamas)<span class="auto-count" id="autoCount8">0</span></button>
+                <button id="autoUpgrade9" class="upgrade-btn">Auto Llama 500/s (50000 llamas)<span class="auto-count" id="autoCount9">0</span></button>
+                <button id="autoUpgrade10" class="upgrade-btn">Auto Llama 1000/s (100000 llamas)<span class="auto-count" id="autoCount10">0</span></button>
+                <button id="autoUpgrade11" class="upgrade-btn">Auto Llama 2000/s (250000 llamas)<span class="auto-count" id="autoCount11">0</span></button>
+                <button id="autoUpgrade12" class="upgrade-btn">Auto Llama 5000/s (500000 llamas)<span class="auto-count" id="autoCount12">0</span></button>
+                <button id="autoUpgrade13" class="upgrade-btn">Auto Llama 10000/s (1000000 llamas)<span class="auto-count" id="autoCount13">0</span></button>
+                <button id="autoUpgrade14" class="upgrade-btn">Auto Llama 20000/s (2500000 llamas)<span class="auto-count" id="autoCount14">0</span></button>
+                <button id="autoUpgrade15" class="upgrade-btn">Auto Llama 50000/s (5000000 llamas)<span class="auto-count" id="autoCount15">0</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-container" style="left: 20px; top: 20px;">
+        <div class="shop-header" style="background: #2196F3;">
+            <span>Click Power Shop</span>
+            <span>&#x25bc;</span>
+        </div>
+        <div class="shop-content">
+            <div class="click-upgrades">
+                <button id="clickUpgrade1" class="click-upgrade-btn">Click Power +1 (50 llamas)<span class="click-power" id="clickCount1">0</span></button>
+                <button id="clickUpgrade2" class="click-upgrade-btn">Click Power +2 (100 llamas)<span class="click-power" id="clickCount2">0</span></button>
+                <button id="clickUpgrade3" class="click-upgrade-btn">Click Power +5 (250 llamas)<span class="click-power" id="clickCount3">0</span></button>
+                <button id="clickUpgrade4" class="click-upgrade-btn">Click Power +10 (500 llamas)<span class="click-power" id="clickCount4">0</span></button>
+                <button id="clickUpgrade5" class="click-upgrade-btn">Click Power +25 (1000 llamas)<span class="click-power" id="clickCount5">0</span></button>
+                <button id="clickUpgrade6" class="click-upgrade-btn">Click Power +50 (2500 llamas)<span class="click-power" id="clickCount6">0</span></button>
+                <button id="clickUpgrade7" class="click-upgrade-btn">Click Power +100 (5000 llamas)<span class="click-power" id="clickCount7">0</span></button>
+                <button id="clickUpgrade8" class="click-upgrade-btn">Click Power +250 (10000 llamas)<span class="click-power" id="clickCount8">0</span></button>
+                <button id="clickUpgrade9" class="click-upgrade-btn">Click Power +500 (25000 llamas)<span class="click-power" id="clickCount9">0</span></button>
+                <button id="clickUpgrade10" class="click-upgrade-btn">Click Power +1000 (50000 llamas)<span class="click-power" id="clickCount10">0</span></button>
+                <button id="clickUpgrade11" class="click-upgrade-btn">Click Power +2500 (100000 llamas)<span class="click-power" id="clickCount11">0</span></button>
+                <button id="clickUpgrade12" class="click-upgrade-btn">Click Power +5000 (250000 llamas)<span class="click-power" id="clickCount12">0</span></button>
+                <button id="clickUpgrade13" class="click-upgrade-btn">Click Power +10000 (500000 llamas)<span class="click-power" id="clickCount13">0</span></button>
+                <button id="clickUpgrade14" class="click-upgrade-btn">Click Power +25000 (1000000 llamas)<span class="click-power" id="clickCount14">0</span></button>
+                <button id="clickUpgrade15" class="click-upgrade-btn">Click Power +50000 (2500000 llamas)<span class="click-power" id="clickCount15">0</span></button>
+            </div>
+        </div>
+    </div>
+
+    <script>let score = 0;
+let clickValue = 1;
+let autoClickers = new Array(15).fill(0);
+let clickUpgrades = new Array(15).fill(0);
+const scoreElement = document.getElementById('score');
+const perSecondElement = document.getElementById('perSecond');
+const perClickElement = document.getElementById('perClick');
+const llamaElement = document.getElementById('llama');
+const allUpgrades = document.querySelectorAll('.upgrade-btn');
+const allClickUpgrades = document.querySelectorAll('.click-upgrade-btn');
+const upgradeCosts = [100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000, 5000000];
+const upgradeValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000];
+const clickUpgradeCosts = [50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000];
+const clickUpgradeValues = [1, 2, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000];
+let currentUpgradeCosts = [...upgradeCosts];
+let currentClickUpgradeCosts = [...clickUpgradeCosts];
+let lastClickTime = 0;
+let clickTimes = [];
+let suspiciousClicks = 0;
+const shopHeaders = document.querySelectorAll('.shop-header');
+const shopContents = document.querySelectorAll('.shop-content');
+function updateScore(amount) {
+  score += amount;
+  scoreElement.textContent = Math.floor(score);
+  checkAllUpgrades();
+  if (amount >= 1) {
+    triggerLlamaFall();
+  }
+}
+function createFloatingNumber(x, y, amount) {
+  const element = document.createElement('div');
+  element.className = 'floating-number';
+  element.textContent = `+${amount}`;
+  element.style.left = `${x}px`;
+  element.style.top = `${y}px`;
+  document.body.appendChild(element);
+  setTimeout(() => {
+    element.remove();
+  }, 1000);
+}
+function checkAllUpgrades() {
+  allUpgrades.forEach((upgrade, index) => {
+    upgrade.disabled = score < currentUpgradeCosts[index];
+  });
+  allClickUpgrades.forEach((upgrade, index) => {
+    upgrade.disabled = score < currentClickUpgradeCosts[index];
+  });
+}
+function calculatePerSecond() {
+  return autoClickers.reduce((total, count, index) => {
+    return total + count * upgradeValues[index];
+  }, 0);
+}
+function calculateClickValue() {
+  return clickUpgrades.reduce((total, count, index) => {
+    return total + count * clickUpgradeValues[index];
+  }, 1);
+}
+function triggerLlamaFall() {
+  const fallingLlama = document.createElement('div');
+  fallingLlama.className = 'falling-llama';
+  const randomX = Math.random() * (window.innerWidth - 250);
+  fallingLlama.style.left = `${randomX}px`;
+  fallingLlama.style.top = '0px';
+  document.body.appendChild(fallingLlama);
+  setTimeout(() => {
+    fallingLlama.remove();
+  }, 1000);
+}
+llamaElement.addEventListener('click', e => {
+  const currentTime = Date.now();
+  const timeSinceLastClick = currentTime - lastClickTime;
+  lastClickTime = currentTime;
+  clickTimes.push(timeSinceLastClick);
+  if (clickTimes.length > 10) {
+    clickTimes.shift();
+  }
+  if (clickTimes.length >= 5) {
+    const avgTimeBetweenClicks = clickTimes.reduce((a, b) => a + b, 0) / clickTimes.length;
+    if (avgTimeBetweenClicks < 50) {
+      suspiciousClicks++;
+      if (suspiciousClicks >= 3) {
+        alert("Auto clicker detected! Please play fairly.");
+        suspiciousClicks = 0;
+        clickTimes = [];
+        return;
+      }
+    } else {
+      suspiciousClicks = Math.max(0, suspiciousClicks - 1);
+    }
+  }
+  updateScore(clickValue);
+  createFloatingNumber(e.pageX, e.pageY, clickValue);
+});
+allUpgrades.forEach((upgrade, index) => {
+  upgrade.addEventListener('click', () => {
+    if (score >= currentUpgradeCosts[index]) {
+      score -= currentUpgradeCosts[index];
+      autoClickers[index]++;
+      currentUpgradeCosts[index] = Math.floor(upgradeCosts[index] * Math.pow(1.5, autoClickers[index]));
+      upgrade.innerHTML = `Auto Llama ${upgradeValues[index]}/s (${currentUpgradeCosts[index]} llamas)<span class="auto-count" id="autoCount${index + 1}">${autoClickers[index]}</span>`;
+      scoreElement.textContent = Math.floor(score);
+      perSecondElement.textContent = calculatePerSecond();
+      checkAllUpgrades();
+    }
+  });
+});
+allClickUpgrades.forEach((upgrade, index) => {
+  upgrade.addEventListener('click', () => {
+    if (score >= currentClickUpgradeCosts[index]) {
+      score -= currentClickUpgradeCosts[index];
+      clickUpgrades[index]++;
+      currentClickUpgradeCosts[index] = Math.floor(clickUpgradeCosts[index] * Math.pow(1.5, clickUpgrades[index]));
+      upgrade.innerHTML = `Click Power +${clickUpgradeValues[index]} (${currentClickUpgradeCosts[index]} llamas)<span class="click-power" id="clickCount${index + 1}">${clickUpgrades[index]}</span>`;
+      clickValue = calculateClickValue();
+      scoreElement.textContent = Math.floor(score);
+      perClickElement.textContent = clickValue;
+      checkAllUpgrades();
+    }
+  });
+});
+shopHeaders.forEach((header, index) => {
+  header.addEventListener('click', () => {
+    const content = shopContents[index];
+    const arrow = header.querySelector('span:last-child');
+    shopContents.forEach((otherContent, otherIndex) => {
+      if (otherIndex !== index) {
+        otherContent.classList.remove('open');
+        shopHeaders[otherIndex].querySelector('span:last-child').textContent = '▼';
+      }
+    });
+    content.classList.toggle('open');
+    arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+  });
+});
+setInterval(() => {
+  const perSecond = calculatePerSecond();
+  const increment = perSecond / 10;
+  if (increment > 0) {
+    updateScore(increment);
+    perSecondElement.textContent = perSecond;
+  }
+}, 100);
+checkAllUpgrades();</script>
+    <a href="https://sites.google.com/view/mylamagames/" target="_blank" class="corner-logo">
+        <img src="/8BA84B46-C0AC-4E67-9E48-DA671812C951.png" alt="LG Llama">
+    </a>
+</body>
+</html>
