@@ -1,6 +1,4 @@
-<html>
-<head>
-    <base href=".">
+<html><head><base href=".">
     <title>Llama Clicker</title>
     <style>
         body {
@@ -24,7 +22,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-image: url('https://raw.githubusercontent.com/pepepepepopo/lamaclickercool/refs/heads/main/lamawithtophat.png');
+            background-image: url('/lamawithtophat.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -72,7 +70,7 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            background-image: url('https://raw.githubusercontent.com/pepepepepopo/lamaclickercool/refs/heads/main/lamawithtophat.png');
+            background-image: url('/lamawithtophat.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -226,21 +224,71 @@
         </div>
         <div class="shop-content">
             <div class="upgrades">
-                <button id="autoUpgrade1" class="upgrade-btn">Auto Llama 1/s (100 llamas)<span class="auto-count" id="autoCount1">0</span></button>
-                <button id="autoUpgrade2" class="upgrade-btn">Auto Llama 2/s (250 llamas)<span class="auto-count" id="autoCount2">0</span></button>
-                <button id="autoUpgrade3" class="upgrade-btn">Auto Llama 5/s (500 llamas)<span class="auto-count" id="autoCount3">0</span></button>
-                <button id="autoUpgrade4" class="upgrade-btn">Auto Llama 10/s (1000 llamas)<span class="auto-count" id="autoCount4">0</span></button>
-                <button id="autoUpgrade5" class="upgrade-btn">Auto Llama 20/s (2500 llamas)<span class="auto-count" id="autoCount5">0</span></button>
-                <button id="autoUpgrade6" class="upgrade-btn">Auto Llama 50/s (5000 llamas)<span class="auto-count" id="autoCount6">0</span></button>
-                <button id="autoUpgrade7" class="upgrade-btn">Auto Llama 100/s (10000 llamas)<span class="auto-count" id="autoCount7">0</span></button>
-                <button id="autoUpgrade8" class="upgrade-btn">Auto Llama 200/s (25000 llamas)<span class="auto-count" id="autoCount8">0</span></button>
-                <button id="autoUpgrade9" class="upgrade-btn">Auto Llama 500/s (50000 llamas)<span class="auto-count" id="autoCount9">0</span></button>
-                <button id="autoUpgrade10" class="upgrade-btn">Auto Llama 1000/s (100000 llamas)<span class="auto-count" id="autoCount10">0</span></button>
-                <button id="autoUpgrade11" class="upgrade-btn">Auto Llama 2000/s (250000 llamas)<span class="auto-count" id="autoCount11">0</span></button>
-                <button id="autoUpgrade12" class="upgrade-btn">Auto Llama 5000/s (500000 llamas)<span class="auto-count" id="autoCount12">0</span></button>
-                <button id="autoUpgrade13" class="upgrade-btn">Auto Llama 10000/s (1000000 llamas)<span class="auto-count" id="autoCount13">0</span></button>
-                <button id="autoUpgrade14" class="upgrade-btn">Auto Llama 20000/s (2500000 llamas)<span class="auto-count" id="autoCount14">0</span></button>
-                <button id="autoUpgrade15" class="upgrade-btn">Auto Llama 50000/s (5000000 llamas)<span class="auto-count" id="autoCount15">0</span></button>
+                <button id="autoUpgrade1" class="upgrade-btn">Lazy Llama: 1/s (100 llamas)<span class="auto-count" id="autoCount1">0</span></button>
+                <button id="autoUpgrade2" class="upgrade-btn">Casual Camelid: 2/s (250 llamas)<span class="auto-count" id="autoCount2">0</span></button>
+                <button id="autoUpgrade3" class="upgrade-btn">Part-time Packer: 5/s (500 llamas)<span class="auto-count" id="autoCount3">0</span></button>
+                <button id="autoUpgrade4" class="upgrade-btn">Regular Runner: 10/s (1000 llamas)<span class="auto-count" id="autoCount4">0</span></button>
+                <button id="autoUpgrade5" class="upgrade-btn">Steady Stepper: 20/s (2500 llamas)<span class="auto-count" id="autoCount5">0</span></button>
+                <button id="autoUpgrade6" class="upgrade-btn">Quick Quester: 50/s (5000 llamas)<span class="auto-count" id="autoCount6">0</span></button>
+                <button id="autoUpgrade7" class="upgrade-btn">Fast Farmer: 100/s (10000 llamas)<span class="auto-count" id="autoCount7">0</span></button>
+                <button id="autoUpgrade8" class="upgrade-btn">Rapid Racer: 200/s (25000 llamas)<span class="auto-count" id="autoCount8">0</span></button>
+                <button id="autoUpgrade9" class="upgrade-btn">Swift Sprinter: 500/s (50000 llamas)<span class="auto-count" id="autoCount9">0</span></button>
+                <button id="autoUpgrade10" class="upgrade-btn">Speedy Scout: 1000/s (100000 llamas)<span class="auto-count" id="autoCount10">0</span></button>
+                <button id="autoUpgrade11" class="upgrade-btn">Hasty Helper: 2000/s (250000 llamas)<span class="auto-count" id="autoCount11">0</span></button>
+                <button id="autoUpgrade12" class="upgrade-btn">Zippy Zoomer: 5000/s (500000 llamas)<span class="auto-count" id="autoCount12">0</span></button>
+                <button id="autoUpgrade13" class="upgrade-btn">Quick Quipper: 10000/s (1000000 llamas)<span class="auto-count" id="autoCount13">0</span></button>
+                <button id="autoUpgrade14" class="upgrade-btn">Rapid Runner: 20000/s (2500000 llamas)<span class="auto-count" id="autoCount14">0</span></button>
+                <button id="autoUpgrade15" class="upgrade-btn">Swift Servant: 50000/s (5000000 llamas)<span class="auto-count" id="autoCount15">0</span></button>
+                <button id="autoUpgrade16" class="upgrade-btn">Turbo Trekker: 100000/s (10000000 llamas)<span class="auto-count" id="autoCount16">0</span></button>
+                <button id="autoUpgrade17" class="upgrade-btn">Lightning Leaper: 250000/s (25000000 llamas)<span class="auto-count" id="autoCount17">0</span></button>
+                <button id="autoUpgrade18" class="upgrade-btn">Rocket Racer: 500000/s (50000000 llamas)<span class="auto-count" id="autoCount18">0</span></button>
+                <button id="autoUpgrade19" class="upgrade-btn">Sonic Sprinter: 1000000/s (100000000 llamas)<span class="auto-count" id="autoCount19">0</span></button>
+                <button id="autoUpgrade20" class="upgrade-btn">Flash Flyer: 2500000/s (250000000 llamas)<span class="auto-count" id="autoCount20">0</span></button>
+                <button id="autoUpgrade21" class="upgrade-btn">Thunder Thruster: 5000000/s (500000000 llamas)<span class="auto-count" id="autoCount21">0</span></button>
+                <button id="autoUpgrade22" class="upgrade-btn">Storm Streaker: 10000000/s (1000000000 llamas)<span class="auto-count" id="autoCount22">0</span></button>
+                <button id="autoUpgrade23" class="upgrade-btn">Hurricane Helper: 25000000/s (2500000000 llamas)<span class="auto-count" id="autoCount23">0</span></button>
+                <button id="autoUpgrade24" class="upgrade-btn">Tornado Tracker: 50000000/s (5000000000 llamas)<span class="auto-count" id="autoCount24">0</span></button>
+                <button id="autoUpgrade25" class="upgrade-btn">Cyclone Chaser: 100000000/s (10000000000 llamas)<span class="auto-count" id="autoCount25">0</span></button>
+                <button id="autoUpgrade26" class="upgrade-btn">Galaxy Glider: 250000000/s (25000000000 llamas)<span class="auto-count" id="autoCount26">0</span></button>
+                <button id="autoUpgrade27" class="upgrade-btn">Nebula Navigator: 500000000/s (50000000000 llamas)<span class="auto-count" id="autoCount27">0</span></button>
+                <button id="autoUpgrade28" class="upgrade-btn">Stellar Streaker: 1000000000/s (100000000000 llamas)<span class="auto-count" id="autoCount28">0</span></button>
+                <button id="autoUpgrade29" class="upgrade-btn">Cosmic Cruiser: 2500000000/s (250000000000 llamas)<span class="auto-count" id="autoCount29">0</span></button>
+                <button id="autoUpgrade30" class="upgrade-btn">Quantum Quester: 5000000000/s (500000000000 llamas)<span class="auto-count" id="autoCount30">0</span></button>
+                <button id="autoUpgrade31" class="upgrade-btn">Infinity Igniter: 10000000000/s (1000000000000 llamas)<span class="auto-count" id="autoCount31">0</span></button>
+                <button id="autoUpgrade32" class="upgrade-btn">Void Voyager: 25000000000/s (2500000000000 llamas)<span class="auto-count" id="autoCount32">0</span></button>
+                <button id="autoUpgrade33" class="upgrade-btn">Dimensional Dasher: 50000000000/s (5000000000000 llamas)<span class="auto-count" id="autoCount33">0</span></button>
+                <button id="autoUpgrade34" class="upgrade-btn">Universal Ultra: 100000000000/s (10000000000000 llamas)<span class="auto-count" id="autoCount34">0</span></button>
+                <button id="autoUpgrade35" class="upgrade-btn">Cosmic Catalyst: 250000000000/s (25000000000000 llamas)<span class="auto-count" id="autoCount35">0</span></button>
+                <button id="autoUpgrade36" class="upgrade-btn">Quantum Quickener: 500000000000/s (50000000000000 llamas)<span class="auto-count" id="autoCount36">0</span></button>
+                <button id="autoUpgrade37" class="upgrade-btn">Celestial Charger: 1000000000000/s (100000000000000 llamas)<span class="auto-count" id="autoCount37">0</span></button>
+                <button id="autoUpgrade38" class="upgrade-btn">Galactic Guardian: 2500000000000/s (250000000000000 llamas)<span class="auto-count" id="autoCount38">0</span></button>
+                <button id="autoUpgrade39" class="upgrade-btn">Astral Accelerator: 5000000000000/s (500000000000000 llamas)<span class="auto-count" id="autoCount39">0</span></button>
+                <button id="autoUpgrade40" class="upgrade-btn">Nebula Nitro: 10000000000000/s (1000000000000000 llamas)<span class="auto-count" id="autoCount40">0</span></button>
+                <button id="autoUpgrade41" class="upgrade-btn">Void Velocity: 25000000000000/s (2500000000000000 llamas)<span class="auto-count" id="autoCount41">0</span></button>
+                <button id="autoUpgrade42" class="upgrade-btn">Cosmic Combustor: 50000000000000/s (5000000000000000 llamas)<span class="auto-count" id="autoCount42">0</span></button>
+                <button id="autoUpgrade43" class="upgrade-btn">Quantum Quasar: 100000000000000/s (10000000000000000 llamas)<span class="auto-count" id="autoCount43">0</span></button>
+                <button id="autoUpgrade44" class="upgrade-btn">Stellar Surge: 250000000000000/s (25000000000000000 llamas)<span class="auto-count" id="autoCount44">0</span></button>
+                <button id="autoUpgrade45" class="upgrade-btn">Galactic Gust: 500000000000000/s (50000000000000000 llamas)<span class="auto-count" id="autoCount45">0</span></button>
+                <button id="autoUpgrade46" class="upgrade-btn">Celestial Cyclone: 1000000000000000/s (100000000000000000 llamas)<span class="auto-count" id="autoCount46">0</span></button>
+                <button id="autoUpgrade47" class="upgrade-btn">Astral Avalanche: 2500000000000000/s (250000000000000000 llamas)<span class="auto-count" id="autoCount47">0</span></button>
+                <button id="autoUpgrade48" class="upgrade-btn">Nebular Nova: 5000000000000000/s (500000000000000000 llamas)<span class="auto-count" id="autoCount48">0</span></button>
+                <button id="autoUpgrade49" class="upgrade-btn">Void Vortex: 10000000000000000/s (1000000000000000000 llamas)<span class="auto-count" id="autoCount49">0</span></button>
+                <button id="autoUpgrade50" class="upgrade-btn">Quantum Quake: 25000000000000000/s (2500000000000000000 llamas)<span class="auto-count" id="autoCount50">0</span></button>
+                <button id="autoUpgrade51" class="upgrade-btn">Cosmic Cataclysm: 50000000000000000/s (5000000000000000000 llamas)<span class="auto-count" id="autoCount51">0</span></button>
+                <button id="autoUpgrade52" class="upgrade-btn">Stellar Storm: 100000000000000000/s (10000000000000000000 llamas)<span class="auto-count" id="autoCount52">0</span></button>
+                <button id="autoUpgrade53" class="upgrade-btn">Galactic Geyser: 250000000000000000/s (25000000000000000000 llamas)<span class="auto-count" id="autoCount53">0</span></button>
+                <button id="autoUpgrade54" class="upgrade-btn">Celestial Surge: 500000000000000000/s (50000000000000000000 llamas)<span class="auto-count" id="autoCount54">0</span></button>
+                <button id="autoUpgrade55" class="upgrade-btn">Astral Anomaly: 1000000000000000000/s (100000000000000000000 llamas)<span class="auto-count" id="autoCount55">0</span></button>
+                <button id="autoUpgrade56" class="upgrade-btn">Nebula Nexus: 2500000000000000000/s (250000000000000000000 llamas)<span class="auto-count" id="autoCount56">0</span></button>
+                <button id="autoUpgrade57" class="upgrade-btn">Void Vanguard: 5000000000000000000/s (500000000000000000000 llamas)<span class="auto-count" id="autoCount57">0</span></button>
+                <button id="autoUpgrade58" class="upgrade-btn">Quantum Quintessence: 10000000000000000000/s (1000000000000000000000 llamas)<span class="auto-count" id="autoCount58">0</span></button>
+                <button id="autoUpgrade59" class="upgrade-btn">Stellar Synergy: 25000000000000000000/s (2500000000000000000000 llamas)<span class="auto-count" id="autoCount59">0</span></button>
+                <button id="autoUpgrade60" class="upgrade-btn">Galactic Genesis: 50000000000000000000/s (5000000000000000000000 llamas)<span class="auto-count" id="autoCount60">0</span></button>
+                <button id="autoUpgrade61" class="upgrade-btn">Celestial Citadel: 100000000000000000000/s (10000000000000000000000 llamas)<span class="auto-count" id="autoCount61">0</span></button>
+                <button id="autoUpgrade62" class="upgrade-btn">Astral Apex: 250000000000000000000/s (25000000000000000000000 llamas)<span class="auto-count" id="autoCount62">0</span></button>
+                <button id="autoUpgrade63" class="upgrade-btn">Nebula Nirvana: 500000000000000000000/s (50000000000000000000000 llamas)<span class="auto-count" id="autoCount63">0</span></button>
+                <button id="autoUpgrade64" class="upgrade-btn">Void Virtuoso: 1000000000000000000000/s (100000000000000000000000 llamas)<span class="auto-count" id="autoCount64">0</span></button>
+                <button id="autoUpgrade65" class="upgrade-btn">Universal Ultimate: 2500000000000000000000/s (500000000000000000000000 llamas)<span class="auto-count" id="autoCount65">0</span></button>
             </div>
         </div>
     </div>
@@ -252,171 +300,285 @@
         </div>
         <div class="shop-content">
             <div class="click-upgrades">
-                <button id="clickUpgrade1" class="click-upgrade-btn">Click Power +1 (50 llamas)<span class="click-power" id="clickCount1">0</span></button>
-                <button id="clickUpgrade2" class="click-upgrade-btn">Click Power +2 (100 llamas)<span class="click-power" id="clickCount2">0</span></button>
-                <button id="clickUpgrade3" class="click-upgrade-btn">Click Power +5 (250 llamas)<span class="click-power" id="clickCount3">0</span></button>
-                <button id="clickUpgrade4" class="click-upgrade-btn">Click Power +10 (500 llamas)<span class="click-power" id="clickCount4">0</span></button>
-                <button id="clickUpgrade5" class="click-upgrade-btn">Click Power +25 (1000 llamas)<span class="click-power" id="clickCount5">0</span></button>
-                <button id="clickUpgrade6" class="click-upgrade-btn">Click Power +50 (2500 llamas)<span class="click-power" id="clickCount6">0</span></button>
-                <button id="clickUpgrade7" class="click-upgrade-btn">Click Power +100 (5000 llamas)<span class="click-power" id="clickCount7">0</span></button>
-                <button id="clickUpgrade8" class="click-upgrade-btn">Click Power +250 (10000 llamas)<span class="click-power" id="clickCount8">0</span></button>
-                <button id="clickUpgrade9" class="click-upgrade-btn">Click Power +500 (25000 llamas)<span class="click-power" id="clickCount9">0</span></button>
-                <button id="clickUpgrade10" class="click-upgrade-btn">Click Power +1000 (50000 llamas)<span class="click-power" id="clickCount10">0</span></button>
-                <button id="clickUpgrade11" class="click-upgrade-btn">Click Power +2500 (100000 llamas)<span class="click-power" id="clickCount11">0</span></button>
-                <button id="clickUpgrade12" class="click-upgrade-btn">Click Power +5000 (250000 llamas)<span class="click-power" id="clickCount12">0</span></button>
-                <button id="clickUpgrade13" class="click-upgrade-btn">Click Power +10000 (500000 llamas)<span class="click-power" id="clickCount13">0</span></button>
-                <button id="clickUpgrade14" class="click-upgrade-btn">Click Power +25000 (1000000 llamas)<span class="click-power" id="clickCount14">0</span></button>
-                <button id="clickUpgrade15" class="click-upgrade-btn">Click Power +50000 (2500000 llamas)<span class="click-power" id="clickCount15">0</span></button>
+                <button id="clickUpgrade1" class="click-upgrade-btn">Gentle Tap: +1 (50 llamas)<span class="click-power" id="clickCount1">0</span></button>
+                <button id="clickUpgrade2" class="click-upgrade-btn">Firm Press: +2 (100 llamas)<span class="click-power" id="clickCount2">0</span></button>
+                <button id="clickUpgrade3" class="click-upgrade-btn">Strong Push: +5 (250 llamas)<span class="click-power" id="clickCount3">0</span></button>
+                <button id="clickUpgrade4" class="click-upgrade-btn">Power Punch: +10 (500 llamas)<span class="click-power" id="clickCount4">0</span></button>
+                <button id="clickUpgrade5" class="click-upgrade-btn">Mega Mash: +25 (1000 llamas)<span class="click-power" id="clickCount5">0</span></button>
+                <button id="clickUpgrade6" class="click-upgrade-btn">Super Slam: +50 (2500 llamas)<span class="click-power" id="clickCount6">0</span></button>
+                <button id="clickUpgrade7" class="click-upgrade-btn">Ultra Impact: +100 (5000 llamas)<span class="click-power" id="clickCount7">0</span></button>
+                <button id="clickUpgrade8" class="click-upgrade-btn">Hyper Hit: +250 (10000 llamas)<span class="click-power" id="clickCount8">0</span></button>
+                <button id="clickUpgrade9" class="click-upgrade-btn">Mighty Momentum: +500 (25000 llamas)<span class="click-power" id="clickCount9">0</span></button>
+                <button id="clickUpgrade10" class="click-upgrade-btn">Colossal Crash: +1000 (50000 llamas)<span class="click-power" id="clickCount10">0</span></button>
+                <button id="clickUpgrade11" class="click-upgrade-btn">Epic Eruption: +2500 (100000 llamas)<span class="click-power" id="clickCount11">0</span></button>
+                <button id="clickUpgrade12" class="click-upgrade-btn">Titan Thump: +5000 (250000 llamas)<span class="click-power" id="clickCount12">0</span></button>
+                <button id="clickUpgrade13" class="click-upgrade-btn">Giant Jab: +10000 (500000 llamas)<span class="click-power" id="clickCount13">0</span></button>
+                <button id="clickUpgrade14" class="click-upgrade-btn">Mega Might: +25000 (1000000 llamas)<span class="click-power" id="clickCount14">0</span></button>
+                <button id="clickUpgrade15" class="click-upgrade-btn">Ultra Force: +50000 (2500000 llamas)<span class="click-power" id="clickCount15">0</span></button>
+                <button id="clickUpgrade16" class="click-upgrade-btn">Supreme Strike: +100000 (5000000 llamas)<span class="click-power" id="clickCount16">0</span></button>
+                <button id="clickUpgrade17" class="click-upgrade-btn">Cosmic Crush: +250000 (10000000 llamas)<span class="click-power" id="clickCount17">0</span></button>
+                <button id="clickUpgrade18" class="click-upgrade-btn">Galactic Smash: +500000 (25000000 llamas)<span class="click-power" id="clickCount18">0</span></button>
+                <button id="clickUpgrade19" class="click-upgrade-btn">Universal Uppercut: +1000000 (50000000 llamas)<span class="click-power" id="clickCount19">0</span></button>
+                <button id="clickUpgrade20" class="click-upgrade-btn">Quantum Quake: +2500000 (100000000 llamas)<span class="click-power" id="clickCount20">0</span></button>
+                <button id="clickUpgrade21" class="click-upgrade-btn">Void Vanquisher: +5000000 (250000000 llamas)<span class="click-power" id="clickCount21">0</span></button>
+                <button id="clickUpgrade22" class="click-upgrade-btn">Stellar Striker: +10000000 (500000000 llamas)<span class="click-power" id="clickCount22">0</span></button>
+                <button id="clickUpgrade23" class="click-upgrade-btn">Nebula Knocker: +25000000 (1000000000 llamas)<span class="click-power" id="clickCount23">0</span></button>
+                <button id="clickUpgrade24" class="click-upgrade-btn">Astral Annihilator: +50000000 (2500000000 llamas)<span class="click-power" id="clickCount24">0</span></button>
+                <button id="clickUpgrade25" class="click-upgrade-btn">Celestial Smasher: +100000000 (5000000000 llamas)<span class="click-power" id="clickCount25">0</span></button>
+                <button id="clickUpgrade26" class="click-upgrade-btn">Dimensional Destroyer: +250000000 (10000000000 llamas)<span class="click-power" id="clickCount26">0</span></button>
+                <button id="clickUpgrade27" class="click-upgrade-btn">Infinity Impact: +500000000 (25000000000 llamas)<span class="click-power" id="clickCount27">0</span></button>
+                <button id="clickUpgrade28" class="click-upgrade-btn">Ultimate Uppercut: +1000000000 (50000000000 llamas)<span class="click-power" id="clickCount28">0</span></button>
+                <button id="clickUpgrade29" class="click-upgrade-btn">Cosmic Cruncher: +2500000000 (100000000000 llamas)<span class="click-power" id="clickCount29">0</span></button>
+                <button id="clickUpgrade30" class="click-upgrade-btn">Galactic Gouger: +5000000000 (250000000000 llamas)<span class="click-power" id="clickCount30">0</span></button>
+                <button id="clickUpgrade31" class="click-upgrade-btn">Quantum Queller: +10000000000 (500000000000 llamas)<span class="click-power" id="clickCount31">0</span></button>
+                <button id="clickUpgrade32" class="click-upgrade-btn">Void Vanisher: +25000000000 (1000000000000 llamas)<span class="click-power" id="clickCount32">0</span></button>
+                <button id="clickUpgrade33" class="click-upgrade-btn">Stellar Stomper: +50000000000 (2500000000000 llamas)<span class="click-power" id="clickCount33">0</span></button>
+                <button id="clickUpgrade34" class="click-upgrade-btn">Nebula Neutralizer: +100000000000 (5000000000000 llamas)<span class="click-power" id="clickCount34">0</span></button>
+                <button id="clickUpgrade35" class="click-upgrade-btn">Astral Assassin: +250000000000 (10000000000000 llamas)<span class="click-power" id="clickCount35">0</span></button>
+                <button id="clickUpgrade36" class="click-upgrade-btn">Celestial Crusher: +500000000000 (25000000000000 llamas)<span class="click-power" id="clickCount36">0</span></button>
+                <button id="clickUpgrade37" class="click-upgrade-btn">Dimensional Devastator: +1000000000000 (50000000000000 llamas)<span class="click-power" id="clickCount37">0</span></button>
+                <button id="clickUpgrade38" class="click-upgrade-btn">Infinity Obliterator: +2500000000000 (100000000000000 llamas)<span class="click-power" id="clickCount38">0</span></button>
+                <button id="clickUpgrade39" class="click-upgrade-btn">Universal Ender: +5000000000000 (250000000000000 llamas)<span class="click-power" id="clickCount39">0</span></button>
+                <button id="clickUpgrade40" class="click-upgrade-btn">Cosmic Catastrophe: +10000000000000 (500000000000000 llamas)<span class="click-power" id="clickCount40">0</span></button>
+                <button id="clickUpgrade41" class="click-upgrade-btn">Galactic Genocide: +25000000000000 (1000000000000000 llamas)<span class="click-power" id="clickCount41">0</span></button>
+                <button id="clickUpgrade42" class="click-upgrade-btn">Quantum Queller: +50000000000000 (2500000000000000 llamas)<span class="click-power" id="clickCount42">0</span></button>
+                <button id="clickUpgrade43" class="click-upgrade-btn">Void Vanquisher: +100000000000000 (5000000000000000 llamas)<span class="click-power" id="clickCount43">0</span></button>
+                <button id="clickUpgrade44" class="click-upgrade-btn">Stellar Subjugator: +250000000000000 (10000000000000000 llamas)<span class="click-power" id="clickCount44">0</span></button>
+                <button id="clickUpgrade45" class="click-upgrade-btn">Nebula Negator: +500000000000000 (25000000000000000 llamas)<span class="click-power" id="clickCount45">0</span></button>
+                <button id="clickUpgrade46" class="click-upgrade-btn">Astral Apocalypse: +1000000000000000 (50000000000000000 llamas)<span class="click-power" id="clickCount46">0</span></button>
+                <button id="clickUpgrade47" class="click-upgrade-btn">Celestial Calamity: +2500000000000000 (100000000000000000 llamas)<span class="click-power" id="clickCount47">0</span></button>
+                <button id="clickUpgrade48" class="click-upgrade-btn">Dimensional Doom: +5000000000000000 (250000000000000000 llamas)<span class="click-power" id="clickCount48">0</span></button>
+                <button id="clickUpgrade49" class="click-upgrade-btn">Infinity Inferno: +10000000000000000 (500000000000000000 llamas)<span class="click-power" id="clickCount49">0</span></button>
+                <button id="clickUpgrade50" class="click-upgrade-btn">Universal Ultimatum: +25000000000000000 (1000000000000000000 llamas)<span class="click-power" id="clickCount50">0</span></button>
+                <button id="clickUpgrade51" class="click-upgrade-btn">Cosmic Conclusion: +50000000000000000 (2500000000000000000 llamas)<span class="click-power" id="clickCount51">0</span></button>
+                <button id="clickUpgrade52" class="click-upgrade-btn">Galactic Gravedigger: +100000000000000000 (5000000000000000000 llamas)<span class="click-power" id="clickCount52">0</span></button>
+                <button id="clickUpgrade53" class="click-upgrade-btn">Void Victory: +250000000000000000 (10000000000000000000 llamas)<span class="click-power" id="clickCount53">0</span></button>
+                <button id="clickUpgrade54" class="click-upgrade-btn">Supreme Finale: +500000000000000000 (25000000000000000000 llamas)<span class="click-power" id="clickCount54">0</span></button>
+                <button id="clickUpgrade55" class="click-upgrade-btn">Cosmic Catastrophe: +1000000000000000000 (50000000000000000000 llamas)<span class="click-power" id="clickCount55">0</span></button>
+                <button id="clickUpgrade56" class="click-upgrade-btn">Galactic Genocide: +2500000000000000000 (100000000000000000000 llamas)<span class="click-power" id="clickCount56">0</span></button>
+                <button id="clickUpgrade57" class="click-upgrade-btn">Quantum Queller: +5000000000000000000 (250000000000000000000 llamas)<span class="click-power" id="clickCount57">0</span></button>
+                <button id="clickUpgrade58" class="click-upgrade-btn">Void Vanquisher: +10000000000000000000 (500000000000000000000 llamas)<span class="click-power" id="clickCount58">0</span></button>
+                <button id="clickUpgrade59" class="click-upgrade-btn">Stellar Subjugator: +25000000000000000000 (1000000000000000000000 llamas)<span class="click-power" id="clickCount59">0</span></button>
+                <button id="clickUpgrade60" class="click-upgrade-btn">Nebula Negator: +50000000000000000000 (2500000000000000000000 llamas)<span class="click-power" id="clickCount60">0</span></button>
+                <button id="clickUpgrade61" class="click-upgrade-btn">Astral Apocalypse: +100000000000000000000 (5000000000000000000000 llamas)<span class="click-power" id="clickCount61">0</span></button>
+                <button id="clickUpgrade62" class="click-upgrade-btn">Celestial Calamity: +250000000000000000000 (10000000000000000000000 llamas)<span class="click-power" id="clickCount62">0</span></button>
+                <button id="clickUpgrade63" class="click-upgrade-btn">Dimensional Doom: +500000000000000000000 (25000000000000000000000 llamas)<span class="click-power" id="clickCount63">0</span></button>
+                <button id="clickUpgrade64" class="click-upgrade-btn">Infinity Inferno: +1000000000000000000000 (50000000000000000000000 llamas)<span class="click-power" id="clickCount64">0</span></button>
+                <button id="clickUpgrade65" class="click-upgrade-btn">Universal Ultimatum: +2500000000000000000000 (100000000000000000000000 llamas)<span class="click-power" id="clickCount65">0</span></button>
             </div>
         </div>
     </div>
 
-    <script>let score = 0;
-let clickValue = 1;
-let autoClickers = new Array(15).fill(0);
-let clickUpgrades = new Array(15).fill(0);
-const scoreElement = document.getElementById('score');
-const perSecondElement = document.getElementById('perSecond');
-const perClickElement = document.getElementById('perClick');
-const llamaElement = document.getElementById('llama');
-const allUpgrades = document.querySelectorAll('.upgrade-btn');
-const allClickUpgrades = document.querySelectorAll('.click-upgrade-btn');
-const upgradeCosts = [100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000, 5000000];
-const upgradeValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000];
-const clickUpgradeCosts = [50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000];
-const clickUpgradeValues = [1, 2, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000];
-let currentUpgradeCosts = [...upgradeCosts];
-let currentClickUpgradeCosts = [...clickUpgradeCosts];
-let lastClickTime = 0;
-let clickTimes = [];
-let suspiciousClicks = 0;
-const shopHeaders = document.querySelectorAll('.shop-header');
-const shopContents = document.querySelectorAll('.shop-content');
-function updateScore(amount) {
-  score += amount;
-  scoreElement.textContent = Math.floor(score);
-  checkAllUpgrades();
-  if (amount >= 1) {
-    triggerLlamaFall();
-  }
-}
-function createFloatingNumber(x, y, amount) {
-  const element = document.createElement('div');
-  element.className = 'floating-number';
-  element.textContent = `+${amount}`;
-  element.style.left = `${x}px`;
-  element.style.top = `${y}px`;
-  document.body.appendChild(element);
-  setTimeout(() => {
-    element.remove();
-  }, 1000);
-}
-function checkAllUpgrades() {
-  allUpgrades.forEach((upgrade, index) => {
-    upgrade.disabled = score < currentUpgradeCosts[index];
-  });
-  allClickUpgrades.forEach((upgrade, index) => {
-    upgrade.disabled = score < currentClickUpgradeCosts[index];
-  });
-}
-function calculatePerSecond() {
-  return autoClickers.reduce((total, count, index) => {
-    return total + count * upgradeValues[index];
-  }, 0);
-}
-function calculateClickValue() {
-  return clickUpgrades.reduce((total, count, index) => {
-    return total + count * clickUpgradeValues[index];
-  }, 1);
-}
-function triggerLlamaFall() {
-  const fallingLlama = document.createElement('div');
-  fallingLlama.className = 'falling-llama';
-  const randomX = Math.random() * (window.innerWidth - 250);
-  fallingLlama.style.left = `${randomX}px`;
-  fallingLlama.style.top = '0px';
-  document.body.appendChild(fallingLlama);
-  setTimeout(() => {
-    fallingLlama.remove();
-  }, 1000);
-}
-llamaElement.addEventListener('click', e => {
-  const currentTime = Date.now();
-  const timeSinceLastClick = currentTime - lastClickTime;
-  lastClickTime = currentTime;
-  clickTimes.push(timeSinceLastClick);
-  if (clickTimes.length > 10) {
-    clickTimes.shift();
-  }
-  if (clickTimes.length >= 5) {
-    const avgTimeBetweenClicks = clickTimes.reduce((a, b) => a + b, 0) / clickTimes.length;
-    if (avgTimeBetweenClicks < 50) {
-      suspiciousClicks++;
-      if (suspiciousClicks >= 3) {
-        alert("Auto clicker detected! Please play fairly.");
-        suspiciousClicks = 0;
-        clickTimes = [];
-        return;
-      }
-    } else {
-      suspiciousClicks = Math.max(0, suspiciousClicks - 1);
-    }
-  }
-  updateScore(clickValue);
-  createFloatingNumber(e.pageX, e.pageY, clickValue);
-});
-allUpgrades.forEach((upgrade, index) => {
-  upgrade.addEventListener('click', () => {
-    if (score >= currentUpgradeCosts[index]) {
-      score -= currentUpgradeCosts[index];
-      autoClickers[index]++;
-      currentUpgradeCosts[index] = Math.floor(upgradeCosts[index] * Math.pow(1.5, autoClickers[index]));
-      upgrade.innerHTML = `Auto Llama ${upgradeValues[index]}/s (${currentUpgradeCosts[index]} llamas)<span class="auto-count" id="autoCount${index + 1}">${autoClickers[index]}</span>`;
-      scoreElement.textContent = Math.floor(score);
-      perSecondElement.textContent = calculatePerSecond();
-      checkAllUpgrades();
-    }
-  });
-});
-allClickUpgrades.forEach((upgrade, index) => {
-  upgrade.addEventListener('click', () => {
-    if (score >= currentClickUpgradeCosts[index]) {
-      score -= currentClickUpgradeCosts[index];
-      clickUpgrades[index]++;
-      currentClickUpgradeCosts[index] = Math.floor(clickUpgradeCosts[index] * Math.pow(1.5, clickUpgrades[index]));
-      upgrade.innerHTML = `Click Power +${clickUpgradeValues[index]} (${currentClickUpgradeCosts[index]} llamas)<span class="click-power" id="clickCount${index + 1}">${clickUpgrades[index]}</span>`;
-      clickValue = calculateClickValue();
-      scoreElement.textContent = Math.floor(score);
-      perClickElement.textContent = clickValue;
-      checkAllUpgrades();
-    }
-  });
-});
-shopHeaders.forEach((header, index) => {
-  header.addEventListener('click', () => {
-    const content = shopContents[index];
-    const arrow = header.querySelector('span:last-child');
-    shopContents.forEach((otherContent, otherIndex) => {
-      if (otherIndex !== index) {
-        otherContent.classList.remove('open');
-        shopHeaders[otherIndex].querySelector('span:last-child').textContent = '▼';
-      }
-    });
-    content.classList.toggle('open');
-    arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
-  });
-});
-setInterval(() => {
-  const perSecond = calculatePerSecond();
-  const increment = perSecond / 10;
-  if (increment > 0) {
-    updateScore(increment);
-    perSecondElement.textContent = perSecond;
-  }
-}, 100);
-checkAllUpgrades();</script>
+    <script>
+        let score = 0;
+        let clickValue = 1;
+        let autoClickers = new Array(65).fill(0);
+        let clickUpgrades = new Array(65).fill(0);
+        const scoreElement = document.getElementById('score');
+        const perSecondElement = document.getElementById('perSecond');
+        const perClickElement = document.getElementById('perClick');
+        const llamaElement = document.getElementById('llama');
+        const allUpgrades = document.querySelectorAll('.upgrade-btn');
+        const allClickUpgrades = document.querySelectorAll('.click-upgrade-btn');
+        const upgradeCosts = [100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
+          10000000, 25000000, 50000000, 100000000, 250000000, 500000000, 1000000000, 2500000000, 5000000000, 10000000000,
+          25000000000, 50000000000, 100000000000, 250000000000, 500000000000, 1000000000000, 2500000000000, 5000000000000,
+          10000000000000, 25000000000000, 50000000000000, 100000000000000, 250000000000000, 500000000000000, 1000000000000000,
+          2500000000000000, 5000000000000000, 10000000000000000, 25000000000000000, 50000000000000000, 100000000000000000,
+          250000000000000000, 500000000000000000, 1000000000000000000, 2500000000000000000, 5000000000000000000,
+          10000000000000000000, 25000000000000000000, 50000000000000000000, 100000000000000000000, 250000000000000000000,
+          500000000000000000000, 1000000000000000000000, 2500000000000000000000, 5000000000000000000000,
+          10000000000000000000000, 25000000000000000000000, 50000000000000000000000, 100000000000000000000000, 250000000000000000000000, 500000000000000000000000];
+        const upgradeValues = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000,
+          100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000, 100000000,
+          250000000, 500000000, 1000000000, 2500000000, 5000000000, 10000000000, 25000000000, 50000000000,
+          100000000000, 250000000000, 500000000000, 1000000000000, 2500000000000, 5000000000000, 10000000000000,
+          25000000000000, 50000000000000, 100000000000000, 250000000000000, 500000000000000, 1000000000000000,
+          2500000000000000, 5000000000000000, 10000000000000000, 25000000000000000, 50000000000000000,
+          100000000000000000, 250000000000000000, 500000000000000000, 1000000000000000000, 2500000000000000000,
+          5000000000000000000, 10000000000000000000, 25000000000000000000, 50000000000000000000, 100000000000000000000,
+          250000000000000000000, 500000000000000000000, 1000000000000000000000, 2500000000000000000000];
+        const clickUpgradeCosts = [50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000,
+          5000000, 10000000, 25000000, 50000000, 100000000, 250000000, 500000000, 1000000000, 2500000000, 5000000000,
+          10000000000, 25000000000, 50000000000, 100000000000, 250000000000, 500000000000, 1000000000000, 2500000000000,
+          5000000000000, 10000000000000, 25000000000000, 50000000000000, 100000000000000, 250000000000000, 500000000000000,
+          1000000000000000, 2500000000000000, 5000000000000000, 10000000000000000, 25000000000000000, 50000000000000000,
+          100000000000000000, 250000000000000000, 500000000000000000, 1000000000000000000, 2500000000000000000,
+          5000000000000000000, 10000000000000000000, 25000000000000000000, 50000000000000000000, 100000000000000000000,
+          250000000000000000000, 500000000000000000000, 1000000000000000000000, 2500000000000000000000, 5000000000000000000000,
+          10000000000000000000000, 25000000000000000000000, 50000000000000000000000, 100000000000000000000000];
+        const clickUpgradeValues = [1, 2, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000,
+          100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000, 100000000,
+          250000000, 500000000, 1000000000, 2500000000, 5000000000, 10000000000, 25000000000, 50000000000,
+          100000000000, 250000000000, 500000000000, 1000000000000, 2500000000000, 5000000000000, 10000000000000,
+          25000000000000, 50000000000000, 100000000000000, 250000000000000, 500000000000000, 1000000000000000,
+          2500000000000000, 5000000000000000, 10000000000000000, 25000000000000000, 50000000000000000,
+          100000000000000000, 250000000000000000, 500000000000000000, 1000000000000000000, 2500000000000000000,
+          5000000000000000000, 10000000000000000000, 25000000000000000000, 50000000000000000000, 100000000000000000000,
+          250000000000000000000, 500000000000000000000, 1000000000000000000000, 2500000000000000000000];
+        const autoUpgradeNames = [
+          "Lazy Llama", "Casual Camelid", "Part-time Packer", "Regular Runner", "Steady Stepper",
+          "Quick Quester", "Fast Farmer", "Rapid Racer", "Swift Sprinter", "Speedy Scout",
+          "Hasty Helper", "Zippy Zoomer", "Quick Quipper", "Rapid Runner", "Swift Servant",
+          "Turbo Trekker", "Lightning Leaper", "Rocket Racer", "Sonic Sprinter", "Flash Flyer",
+          "Thunder Thruster", "Storm Streaker", "Hurricane Helper", "Tornado Tracker", "Cyclone Chaser",
+          "Galaxy Glider", "Nebula Navigator", "Stellar Streaker", "Cosmic Cruiser", "Quantum Quester",
+          "Infinity Igniter", "Void Voyager", "Dimensional Dasher", "Universal Ultra", "Cosmic Catalyst",
+          "Quantum Quickener", "Celestial Charger", "Galactic Guardian", "Astral Accelerator", "Nebula Nitro",
+          "Void Velocity", "Cosmic Combustor", "Quantum Quasar", "Stellar Surge", "Galactic Gust",
+          "Celestial Cyclone", "Astral Avalanche", "Nebular Nova", "Void Vortex", "Quantum Quake",
+          "Cosmic Cataclysm", "Stellar Storm", "Galactic Geyser", "Celestial Surge", "Astral Anomaly",
+          "Nebula Nexus", "Void Vanguard", "Quantum Quintessence", "Stellar Synergy", "Galactic Genesis",
+          "Celestial Citadel", "Astral Apex", "Nebula Nirvana", "Void Virtuoso", "Universal Ultimate"
+        ];
+        const clickUpgradeNames = [
+          "Gentle Tap", "Firm Press", "Strong Push", "Power Punch", "Mega Mash",
+          "Super Slam", "Ultra Impact", "Hyper Hit", "Mighty Momentum", "Colossal Crash",
+          "Epic Eruption", "Titan Thump", "Giant Jab", "Mega Might", "Ultra Force",
+          "Supreme Strike", "Cosmic Crush", "Galactic Smash", "Universal Uppercut", "Quantum Quake",
+          "Void Vanquisher", "Stellar Striker", "Nebula Knocker", "Astral Annihilator", "Celestial Smasher",
+          "Dimensional Destroyer", "Infinity Impact", "Ultimate Uppercut", "Cosmic Cruncher", "Galactic Gouger",
+          "Quantum Queller", "Void Vanisher", "Stellar Stomper", "Nebula Neutralizer", "Astral Assassin",
+          "Celestial Crusher", "Dimensional Devastator", "Infinity Obliterator", "Ultimate Undoer", "Cosmic Carnage",
+          "Galactic Guillotine", "Quantum Quasher", "Void Vaporizer", "Stellar Slammer", "Nebula Nullifier",
+          "Astral Atomizer", "Celestial Cataclysm", "Dimensional Devastator", "Infinity Inferno", "Universal Ender",
+          "Cosmic Catastrophe", "Galactic Genocide", "Quantum Queller", "Void Vanquisher", "Stellar Subjugator",
+          "Nebula Negator", "Astral Apocalypse", "Celestial Calamity", "Dimensional Doom", "Infinity Inferno",
+          "Universal Ultimatum", "Cosmic Conclusion", "Galactic Gravedigger", "Void Victory", "Supreme Finale"
+        ];
+        let currentUpgradeCosts = [...upgradeCosts];
+        let currentClickUpgradeCosts = [...clickUpgradeCosts];
+        let lastClickTime = 0;
+        let clickTimes = [];
+        let suspiciousClicks = 0;
+        const shopHeaders = document.querySelectorAll('.shop-header');
+        const shopContents = document.querySelectorAll('.shop-content');
+        function updateScore(amount) {
+          score += amount;
+          scoreElement.textContent = Math.floor(score);
+          checkAllUpgrades();
+          if (amount >= 1) {
+            triggerLlamaFall();
+          }
+        }
+        function createFloatingNumber(x, y, amount) {
+          const element = document.createElement('div');
+          element.className = 'floating-number';
+          element.textContent = `+${amount}`;
+          element.style.left = `${x}px`;
+          element.style.top = `${y}px`;
+          document.body.appendChild(element);
+          setTimeout(() => {
+            element.remove();
+          }, 1000);
+        }
+        function checkAllUpgrades() {
+          allUpgrades.forEach((upgrade, index) => {
+            upgrade.disabled = score < currentUpgradeCosts[index];
+          });
+          allClickUpgrades.forEach((upgrade, index) => {
+            upgrade.disabled = score < currentClickUpgradeCosts[index];
+          });
+        }
+        function calculatePerSecond() {
+          return autoClickers.reduce((total, count, index) => {
+            return total + count * upgradeValues[index];
+          }, 0);
+        }
+        function calculateClickValue() {
+          return clickUpgrades.reduce((total, count, index) => {
+            return total + count * clickUpgradeValues[index];
+          }, 1);
+        }
+        function triggerLlamaFall() {
+          const fallingLlama = document.createElement('div');
+          fallingLlama.className = 'falling-llama';
+          const randomX = Math.random() * (window.innerWidth - 250);
+          fallingLlama.style.left = `${randomX}px`;
+          fallingLlama.style.top = '0px';
+          document.body.appendChild(fallingLlama);
+          setTimeout(() => {
+            fallingLlama.remove();
+          }, 1000);
+        }
+        llamaElement.addEventListener('click', e => {
+          const currentTime = Date.now();
+          const timeSinceLastClick = currentTime - lastClickTime;
+          lastClickTime = currentTime;
+          clickTimes.push(timeSinceLastClick);
+          if (clickTimes.length > 10) {
+            clickTimes.shift();
+          }
+          if (clickTimes.length >= 5) {
+            const avgTimeBetweenClicks = clickTimes.reduce((a, b) => a + b, 0) / clickTimes.length;
+            if (avgTimeBetweenClicks < 50) {
+              suspiciousClicks++;
+              if (suspiciousClicks >= 3) {
+                alert("Auto clicker detected! Please play fairly.");
+                suspiciousClicks = 0;
+                clickTimes = [];
+                return;
+              }
+            } else {
+              suspiciousClicks = Math.max(0, suspiciousClicks - 1);
+            }
+          }
+          updateScore(clickValue);
+          createFloatingNumber(e.pageX, e.pageY, clickValue);
+        });
+        allUpgrades.forEach((upgrade, index) => {
+          upgrade.addEventListener('click', () => {
+            if (score >= currentUpgradeCosts[index]) {
+              score -= currentUpgradeCosts[index];
+              autoClickers[index]++;
+              currentUpgradeCosts[index] = Math.floor(upgradeCosts[index] * Math.pow(1.5, autoClickers[index]));
+              upgrade.innerHTML = `${autoUpgradeNames[index]}: ${upgradeValues[index]}/s (${currentUpgradeCosts[index]} llamas)<span class="auto-count" id="autoCount${index + 1}">${autoClickers[index]}</span>`;
+              scoreElement.textContent = Math.floor(score);
+              perSecondElement.textContent = calculatePerSecond();
+              checkAllUpgrades();
+            }
+          });
+        });
+        allClickUpgrades.forEach((upgrade, index) => {
+          upgrade.addEventListener('click', () => {
+            if (score >= currentClickUpgradeCosts[index]) {
+              score -= currentClickUpgradeCosts[index];
+              clickUpgrades[index]++;
+              currentClickUpgradeCosts[index] = Math.floor(clickUpgradeCosts[index] * Math.pow(1.5, clickUpgrades[index]));
+              upgrade.innerHTML = `${clickUpgradeNames[index]}: +${clickUpgradeValues[index]} (${currentClickUpgradeCosts[index]} llamas)<span class="click-power" id="clickCount${index + 1}">${clickUpgrades[index]}</span>`;
+              clickValue = calculateClickValue();
+              scoreElement.textContent = Math.floor(score);
+              perClickElement.textContent = clickValue;
+              checkAllUpgrades();
+            }
+          });
+        });
+        shopHeaders.forEach((header, index) => {
+          header.addEventListener('click', () => {
+            const content = shopContents[index];
+            const arrow = header.querySelector('span:last-child');
+            shopContents.forEach((otherContent, otherIndex) => {
+              if (otherIndex !== index) {
+                otherContent.classList.remove('open');
+                shopHeaders[otherIndex].querySelector('span:last-child').textContent = '▼';
+              }
+            });
+            content.classList.toggle('open');
+            arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+          });
+        });
+        setInterval(() => {
+          const perSecond = calculatePerSecond();
+          const increment = perSecond / 10;
+          if (increment > 0) {
+            updateScore(increment);
+            perSecondElement.textContent = perSecond;
+          }
+        }, 100);
+        checkAllUpgrades();
+    </script>
     <a href="https://sites.google.com/view/mylamagames/" target="_blank" class="corner-logo">
-        <img src="https://raw.githubusercontent.com/pepepepepopo/lamaclickercool/refs/heads/main/8BA84B46-C0AC-4E67-9E48-DA671812C951%20.png" alt="LG Llama">
+        <img src="/8BA84B46-C0AC-4E67-9E48-DA671812C951.png" alt="LG Llama">
     </a>
 </body>
 </html>
